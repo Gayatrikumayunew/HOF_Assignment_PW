@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function displayCountdown() {
+            let countdown = 3;
+            const countdownInterval = setInterval(() => {
+                if (countdown > 0) {
+                    document.querySelector('.random').textContent = countdown + '...';
+                    countdown--;
+                } else {
+                    clearInterval(countdownInterval);
+                    displayRandomNumber();
+                }
+            }, 1000); // Update every 1 second
+        }
+
+        function displayRandomNumber() {
+            let val = Math.floor(Math.random() * 101);
+            document.querySelector('.random').textContent = val; // Display the random number
+            setTimeout(displayCountdown, 500); // Wait 3 seconds and start the countdown again
+        }
+
+        // Start the first countdown when the window loads
+        window.onload = function() {
+            displayCountdown();
+        };
+    </script>
+</head>
+
+<body>
+    <div class="random">
+    </div>
+</body>
+
+</html>

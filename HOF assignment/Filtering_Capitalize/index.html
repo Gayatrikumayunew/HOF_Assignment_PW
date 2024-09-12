@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj=[{book: 'lilima ',auther:'Mr.x',year:2002},
+        {book: 'lilima ',auther:'Mr.f',year:2024},
+        {book: 'lilima ',auther:'Mr.e',year:2005},
+        {book: 'lilima ',auther:'Mr.c',year:2022},
+        {book:'1920',auther:"unknown",year:2009}
+   
+    ]
+    const filteredData = obj.filter(book => book.year < 2010);
+    const update=filteredData.map(book=>({
+        ...book,auther:book.auther.toUpperCase()
+    }))
+    console.log(update)
+    </script>
+</body>
+</html>

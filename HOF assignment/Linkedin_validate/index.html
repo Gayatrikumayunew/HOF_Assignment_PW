@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function check() {
+            let input = document.getElementById('inp').value;
+            let pattern = /^https:\/\/(www\.)?linkedin\.com\/in\/[a-zA-Z0-9_-]+\/?$/;
+            let outputans = document.querySelector('.output');
+            let isValid = pattern.test(input);
+
+            if (isValid) {
+                outputans.textContent = "valid";
+                outputans.style.color = "green";
+            } else {
+                outputans.textContent = "invalid";
+                outputans.style.color = "red";
+            }
+
+            // Prevent the form from submitting and reloading the page
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+
+    <form onsubmit="return check();">
+        <input type="text" id="inp" placeholder="Enter URL">
+        <button type="submit">Check</button>
+    </form>
+    <div class="output"></div>
+</body>
+
+</html>

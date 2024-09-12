@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Checker</title>
+    <script>
+        function check() {
+            // Get the value from the input field
+            let inp = document.getElementById("inp").value;
+            // Regular expression to check if the input starts with http:// or https://
+            let ans = /^(http:\/\/|https:\/\/)[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+\.com$/;
+            // Check if the input matches the regular expression
+            let result = ans.test(inp);
+            // Display the result in the output div
+            document.querySelector(".output").innerText = result ? "Valid URL" : "Invalid URL";
+            // Prevent form submission
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return check();">
+        <input type="text" id="inp" placeholder="Enter URL">
+        <button type="submit">Check</button>
+    </form>
+    <div class="output"></div>
+</body>
+</html>
